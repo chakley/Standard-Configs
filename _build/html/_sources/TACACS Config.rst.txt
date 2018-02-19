@@ -1,0 +1,36 @@
+TACACS config
+=============
+
+.. code-block:: c
+
+	aaa new-model
+
+	tacacs server ATL_ISE01
+	 address ipv4 10.85.193.13
+	 key 0 Hf8634ghJE&^@#gdk
+
+	tacacs server ATL_ISE02
+	 address ipv4 10.85.193.14
+	 key 0 Hf8634ghJE&^@#gdk
+	
+	aaa group server tacacs+ ISE_TACACS
+	 server name ATL_ISE01
+	 server name ATL_ISE02
+	 ip tacacs source-interface loopback 0
+	
+	aaa authentication login default group ISE_TACACS local
+	aaa authentication enable default group ISE_TACACS enable
+	aaa authorization exec default group ISE_TACACS local 
+	aaa authorization commands 15 default group ISE_TACACS none 
+	aaa accounting commands 15 default
+	aaa accounting update newinfo
+	aaa accounting exec default start-stop group ISE_TACACS
+	aaa accounting commands 0 default start-stop group ISE_TACACS
+	aaa accounting commands 1 default start-stop group ISE_TACACS
+	aaa accounting commands 7 default start-stop group ISE_TACACS
+	aaa accounting commands 15 default start-stop group ISE_TACACS
+
+
+
+ISE 
+ create object on loopback IP address

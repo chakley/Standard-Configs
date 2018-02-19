@@ -1,0 +1,31 @@
+WCCP config
+===========
+
+
+subheading
+----------
+
+ * item 1
+ * item 2
+ 
+ #. Item 3
+ #. Item 4
+
+
+test words
+
+Inline Markup
+-------------
+Words can have *emphasis in italics* or be **bold** and you can define
+code samples with back quotes, like when you talk about a command: ``sudo`` 
+gives you super user powers!
+
+.. note:: this is a note
+
+
+
+.. warning:: this is a warning
+
+.. code-block:: c
+
+	ip wccp 62

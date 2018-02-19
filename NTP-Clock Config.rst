@@ -1,0 +1,32 @@
+NTP Config
+==========
+
+acl's are used here as best practice security standards (according to nessus scans)
+
+.. code-block:: c
+
+	ip access-list standard acl-ntp
+	 permit 10.85.80.11
+	 permit 10.85.80.10
+
+	ntp access-group peer acl-ntp
+	ntp server 10.85.80.10 prefer
+	ntp server 10.85.80.11
+	
+	ntp source Loopback0
+	# alternatively, use the management interface or vlan for data center devices 
+	
+
+Verification
+------------
+
+ * show ntp associations
+ * show ntp status
+
+Clock Configuration
+-------------------
+
+.. code-block:: c
+
+	clock timezone GMT 0 0
+	
